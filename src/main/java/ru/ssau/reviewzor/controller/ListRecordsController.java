@@ -6,7 +6,6 @@ import ru.ssau.reviewzor.domain.ListRecord;
 import ru.ssau.reviewzor.repo.ListRecordRepo;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
