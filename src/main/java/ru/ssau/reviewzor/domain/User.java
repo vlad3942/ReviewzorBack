@@ -20,9 +20,9 @@ public class User {
     private String password;
     private String name;
     private String surname;
-    private boolean isActive;
+    private boolean isActive; //TODO check if needed
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
