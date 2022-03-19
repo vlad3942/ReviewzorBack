@@ -8,3 +8,7 @@ spring:
     generate-ddl: true
     hibernate.ddl-auto: update
     #database-platform: org.hibernate.dialect.MySQL5Dialect
+#App properties
+app:
+  jwtSecret: yWRDwg4rLCYp@HFiyZH%WcijfJkcm%E7K$8$&7wx$d^SeTTcKw^G%9pS6KzFvaG&4qnx#tTy@FLTTcv2$s!M9Ngnj3FtDxBphgjRbSJmrVB!4b9eEP6QtJ#CKvHg4!wscbkmz%S!Uhw^PC%KYKN44D#3Bjz4S$i!ziZ8KWoH9HMD#eqCEj%HH@3XoDoFaczK$7D2CJrxyj!VDfkxNda3DbShu3zgfrB^WopE4QA757y&4QK&FEQYD4n$FaNmr$DteYAqamWgKDR2uR&KnLbw!sceB655fF2YJFM8yS$gjE8foKR8PEdd3hpMhFFai9CbM7w@NWvqrybv#U7g9zZ$BCRCMhRpSt6PvX7PRHBb2gZzv!bBxvRDYhm7XpYd4hK%Y6XDvDeWeV8yqLrQJi65@3qwcnG9MU6BzecVG!R$&^@5@C!DJbEM9gk9vyH@7KctSLzM2i8UCfjMPSMuiW8Zw#AwWQ3&g%ndHCCWkgzY@U93vcAMJJt#@m9bZm7Jtv$!
+  jwtExpirationMs: 86400000
