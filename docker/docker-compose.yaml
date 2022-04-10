@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  reviewzor_db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: reviewzor
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 15432:5432
+  reviewzor_server:
+    image: reviewzor-app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_PORT=15432
+      - DB_HOST=reviewzor_db
+      - DB_PASSWORD=postgres
+    depends_on:
+      - reviewzor_db
