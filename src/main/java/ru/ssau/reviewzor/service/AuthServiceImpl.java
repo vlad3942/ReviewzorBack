@@ -58,7 +58,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     public ResponseEntity<?> registerUser(SignupRequest signupRequest) {
-        if (userRepo.existsByUsername(signupRequest.getUsername())) {
+        if (Boolean.TRUE.equals(userRepo.existsByUsername(signupRequest.getUsername()))) {
             return ResponseEntity.badRequest()
                     .body(new MessageResponse("Error: Username is exists"));
         }

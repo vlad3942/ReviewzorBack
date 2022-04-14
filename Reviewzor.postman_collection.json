@@ -322,6 +322,70 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Add Place",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"TestId_1\",\r\n    \"fileName\": \"174d72b9-fe6d-4485-b4ca-eee2cb063439.CtSNIPkHLP8.jpg\",\r\n    \"name\": \"BurgerKing\",\r\n    \"category\": \"//TODO what is it?\",\r\n    \"follow\": true,\r\n    \"address\": \"My very private address\",\r\n    \"latitude\": 333.333,\r\n    \"longitude\": 666.666,\r\n    \"detail\": \"Some details...\",\r\n    \"rating\": 5.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/data/places/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"data",
+						"places",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all user Places",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/data/places",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"data",
+						"places"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
