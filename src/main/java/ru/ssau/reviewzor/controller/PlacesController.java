@@ -27,7 +27,7 @@ public class PlacesController {
     public List<PlacesModel> getAllRecords(@RequestHeader("Authorization") final String authToken) {
         final String token = authToken.substring("Bearer ".length());
         final String username = jwtUtils.getUsernameFromJwt(token);
-        Optional<User> byUsername = userRepo.findByUsername(username);
+        Optional<User> byUsername = userRepo.findByEmail(username);
         if (byUsername.isEmpty()) {
             return Collections.emptyList();
         }
@@ -39,7 +39,7 @@ public class PlacesController {
     public void addRecord(@RequestHeader("Authorization") final String authToken, @RequestBody PlacesModel place) {
         final String token = authToken.substring("Bearer ".length());
         final String username = jwtUtils.getUsernameFromJwt(token);
-        Optional<User> byUsername = userRepo.findByUsername(username);
+        Optional<User> byUsername = userRepo.findByEmail(username);
         if (byUsername.isEmpty()) {
             throw new IllegalStateException("Error authority");
         }

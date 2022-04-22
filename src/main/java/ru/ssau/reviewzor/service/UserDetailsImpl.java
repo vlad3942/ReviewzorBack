@@ -18,8 +18,6 @@ public class UserDetailsImpl implements UserDetails {
 
     private Long id;
     private String username;
-    private String name;
-    private String surname;
     private boolean isActive;
 
     @JsonIgnore
@@ -29,16 +27,12 @@ public class UserDetailsImpl implements UserDetails {
     public UserDetailsImpl(
             final Long id,
             final String username,
-            final String name,
-            final String surname,
             final boolean isActive,
             final String password,
             final Collection<? extends GrantedAuthority> authorities
     ) {
         this.id = id;
         this.username = username;
-        this.name = name;
-        this.surname = surname;
         this.isActive = isActive;
         this.password = password;
         this.authorities = authorities;
@@ -50,9 +44,7 @@ public class UserDetailsImpl implements UserDetails {
                 .collect(Collectors.toList());
         return new UserDetailsImpl(
                 user.getId(),
-                user.getUsername(),
-                user.getName(),
-                user.getSurname(),
+                user.getEmail(),
                 user.isActive(),
                 user.getPassword(),
                 authorities

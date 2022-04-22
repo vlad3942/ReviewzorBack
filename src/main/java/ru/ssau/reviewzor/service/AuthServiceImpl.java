@@ -51,14 +51,12 @@ public class AuthServiceImpl implements AuthService {
                 jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
-                userDetails.getName(),
-                userDetails.getSurname(),
                 roles
         );
     }
 
     public ResponseEntity<?> registerUser(SignupRequest signupRequest) {
-        if (Boolean.TRUE.equals(userRepo.existsByUsername(signupRequest.getUsername()))) {
+        if (Boolean.TRUE.equals(userRepo.existsByEmail(signupRequest.getEmail()))) {
             return ResponseEntity.badRequest()
                     .body(new MessageResponse("Error: Username is exists"));
         }

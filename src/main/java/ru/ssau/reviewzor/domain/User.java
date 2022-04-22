@@ -1,5 +1,6 @@
 package ru.ssau.reviewzor.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,18 +11,21 @@ import java.util.Set;
 @Entity
 @Table(name = "usr",
         uniqueConstraints = {
-            @UniqueConstraint(columnNames = "username")
+            @UniqueConstraint(columnNames = "email")
         })
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String username;
+    private String email;
+    @JsonIgnore
     private String password;
     private String name;
     private String surname;
+    @JsonIgnore
     private boolean isActive; //TODO check if needed
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
