@@ -26,3 +26,6 @@ app:
 
   upload:
     path: images/
+
+server:
+  port: ${PORT:8080}
