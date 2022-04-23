@@ -16,6 +16,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public boolean isExistsByName(final String filename) {
+        if (filename == null || filename.equals("default")) return true;
         return Path.of(absPath, uploadPath, filename).toFile().exists();
     }
 }

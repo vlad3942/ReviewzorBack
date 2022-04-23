@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Data
 @Entity
@@ -22,6 +23,9 @@ public class PlacesModel {
     private Double rating;
 
     private String fileName;
+
+    private Timestamp lastModified;
+    private Boolean isDeleted;
 
     @JsonIgnore
     private Long userId;

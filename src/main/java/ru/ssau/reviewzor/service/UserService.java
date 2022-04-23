@@ -46,4 +46,14 @@ public class UserService {
         final User user = byEmail.get();
         return ResponseEntity.ok(user);
     }
+
+    public Long getUserIdByBearerToken(final String authToken) {
+        final String token = authToken.substring("Bearer ".length());
+        final String username = jwtUtils.getUsernameFromJwt(token);
+        Optional<User> byUsername = userRepo.findByEmail(username);
+        if (byUsername.isEmpty()) {
+            throw new IllegalStateException("Error authority");
+        }
+        return byUsername.get().getId();
+    }
 }
